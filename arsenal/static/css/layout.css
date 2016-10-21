@@ -1,0 +1,38 @@
+.center {
+    text-align: center;
+}
+
+.left-justify {
+    text-align: left;
+}
+
+.right-justify {
+    text-align: right;
+}
+
+.round-corner {
+    border-radius: 0.2em;
+}
+
+.l-box {
+    padding: 1em;
+}
+
+body {
+    background-color: floralwhite;
+}
+
+.content {
+    background-color: lightgoldenrodyellow;
+}
+
+.content img {
+    max-width: 100%;
+}
+
+.footer {
+    background-color: floralwhite;
+    border-top: thin dashed slategray;
+    padding: 0.5em 0 2em;
+    width: 100%;
+}

@@ -1,0 +1,26 @@
+{% extends 'forum/layout.html' %}
+{% import '_macros.html' as macros with context %}
+
+{% block title %}Topic List {{ super() }}{% endblock title %}
+
+{% block content %}
+{{ super() }}
+<div class="l-box">
+  <h1>Topic List</h1>
+  {{ macros.render_topic_list(topics) }}
+  <form id="new-topic" action="" method="POST">
+    {{ form.hidden_tag() }}
+    <div class="pure-g">
+      <div class="pure-u-1">
+        {{ form.title.label }}
+        {{ macros.render_errors(form.title) }}
+        {{ form.title(placeholder="what's the topic") }}
+        {{ form.content(placeholder="say something...") }}
+      </div>
+    </div>
+    <div class="center">
+      {{ form.submit(class_="pure-button pure-button-primary") }}
+    </div>
+  </form>
+</div>
+{% endblock content %}

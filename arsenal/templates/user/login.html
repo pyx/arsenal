@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+{% import '_macros.html' as macros with context %}
+
+{% block title %}Sign in {{ super() }}{% endblock title %}
+
+{% block content %}
+{{ super() }}
+<div class="l-box">
+  <div class="user-form">
+    <h1>Arsenal</h1>
+    <form action="" method="POST">
+      {{ form.hidden_tag() }}
+      {{ macros.render_errors(form.email) }}
+      {{ form.email(class_="email", placeholder="email") }}<br>
+      {{ macros.render_errors(form.password) }}
+      {{ form.password(class_="password", placeholder="password") }}<br>
+      {{ form.remember_me }} {{ form.remember_me.label }}<br>
+      {{ form.submit }}
+    </form>
+  </div>
+</div>
+{% endblock content %}

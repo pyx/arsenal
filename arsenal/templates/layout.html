@@ -1,0 +1,60 @@
+{% extends 'pure/layout.html' %}
+
+{% block meta %}
+{{ super() }}
+    <meta name="description" content="arsenal forum">
+{% endblock meta %}
+
+{% block title %} &ndash; arsenal forum{% endblock title %}
+
+{% block style %}
+{{ super() }}
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/highlite.css') }}">
+{% endblock style %}
+
+{% block nav %}
+{{ super() }}
+<div class="header">
+  <div class="home-menu pure-menu pure-menu-horizontal">
+    <a class="pure-menu-heading" href="{{ url_for('forum.index') }}">Topics</a>
+
+    <ul class="pure-menu-list">
+      {% if current_user.is_authenticated %}
+      <li class="pure-menu-item"><a href="{{ url_for('user.dashboard') }}" class="pure-menu-link">Dashboard</a></li>
+      <li class="pure-menu-item"><a href="{{ url_for('user.logout') }}" class="pure-menu-link">Sign out</a></li>
+      {% else %}
+      <li class="pure-menu-item"><a href="{{ url_for('user.login') }}" class="pure-menu-link">Sign In</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+{% endblock nav %}
+
+{% block content %}
+{{ super() }}
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<ul class="flash-messages">
+  {% for message in messages %}
+  <li>{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endwith %}
+{% endblock content %}
+</div>
+
+{% block body %}
+{{ super() }}
+<div class="footer">
+  {% block footer %}
+  <h6 id="copyright" class="center">
+    &copy; 2016.
+    Build with <strong>&#x2665;</strong> by <a href="http://xrefactor.com">pyx</a>
+  </h6>
+  {% endblock footer %}
+</div>
+{% endblock body %}

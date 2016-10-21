@@ -1,0 +1,22 @@
+{% extends 'layout.html' %}
+
+{% block style %}
+{{ super() }}
+<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+{% endblock style %}
+
+{% block head %}
+{{ super() }}
+{{ moment.include_jquery() }}
+{{ moment.include_moment() }}
+<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+{% endblock head %}
+
+{% block script %}
+{{ super() }}
+<script type="text/javascript">
+(function () {
+  var simplemde = new SimpleMDE();
+})();
+</script>
+{% endblock script %}

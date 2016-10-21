@@ -1,0 +1,191 @@
+.home-menu {
+    background-color: cadetblue;
+    font-size: 0.8em;
+    text-align: right;
+}
+
+.home-menu .pure-menu-heading {
+    float: left;
+}
+
+.home-menu a {
+    color: lightcyan;
+}
+
+.home-menu a:hover {
+    background-color: mediumturquoise;
+    color: ghostwhite;
+}
+
+.home-menu a:focus {
+    background-color: snow;
+    color: slategray;
+}
+
+#new-post, #new-topic {
+    margin-top: 2em;
+}
+
+input#submit {
+    margin-top: 1em;
+}
+
+input#title {
+    border: thin solid slategray;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 0.5em 0;
+    width: 100%;
+}
+
+.post, .topic {
+    border-bottom: thin dashed slategray;
+}
+
+.post-content {
+}
+
+.post-author {
+    padding: 0.5em;
+}
+
+.post-date {
+    font-size: 0.8em;
+    padding: 0.5em;
+    padding-top: 0;
+}
+
+.error-message {
+    color: red;
+    font-weight: bolder;
+}
+
+.user-form {
+    left: 50%;
+    text-align: center;
+}
+
+.user-form h1 {
+    color: cadetblue;
+}
+
+.user-form input.email,
+.user-form input.name,
+.user-form input.password,
+.user-form input#submit {
+    border: none;
+    font-size: 1.5em;
+    width: 13em;
+}
+
+.user-form input.password {
+    margin-bottom: 1em;
+}
+
+.user-form input.email,
+.user-form input.name,
+.user-form input.password {
+    background-color: transparent;
+    border-bottom: 0.1em solid darkgray;
+    color: slategray;
+    outline: none;
+    padding: 0.5em 0;
+    text-align: center;
+}
+
+.user-form input#submit {
+    background-color: slategrey;
+    color: snow;
+    height: 2em;
+    margin: 1em;
+}
+
+.user-form input.email:focus, .user-form input.email:hover,
+.user-form input.name:focus, .user-form input.name:hover,
+.user-form input.password:focus, .user-form input.password:hover {
+    color: darkcyan;
+}
+
+.user-form input#submit:hover {
+    background-color: cadetblue;
+    color: snow;
+}
+
+.post-number {
+    background-color: cadetblue;
+    color: snow;
+    padding: 0.2em 0.5em;
+}
+
+.topic-title small {
+    background-color: cadetblue;
+    color: snow;
+    font-size: 0.5em;
+    padding: 0.1em 0.3em;
+}
+
+.post-number span {
+    background-color: white;
+    color: cadetblue;
+    font-weight: bold;
+    padding: 0 0.5em;
+}
+
+.post-number a {
+    color: snow;
+    float: right;
+    text-decoration: none;
+    margin-right: 0.5em;
+}
+
+.post-number a:hover {
+    color: yellow;
+    text-decoration: underline;
+}
+
+h1.topic-title {
+    border-bottom: thin dashed cadetblue;
+}
+
+.flash-messages {
+    bottom: 0;
+    background-color: rgba(240, 96, 96, 0.8);
+    color: floralwhite;
+    font-weight: bolder;
+    list-style: none;
+    margin: 0;
+    padding: 0.5em 1em;
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.user-profile {
+    text-align: center;
+}
+
+.user-profile table {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.user-profile i {
+    margin: 0.5em 1em;
+}
+
+.user-dashboard .pure-button {
+    background-color: indianred;
+    color: white;
+    font-weight: bold;
+    width: 12em;
+}
+
+.codehilite {
+    background-color: ivory;
+    border: thin solid slategray;
+}
+
+#copyright strong {
+    color: red;
+}

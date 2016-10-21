@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% from '_macros.html' import avatar with context %}
+
+{% block title %}Dashboard {{ super() }}{% endblock title %}
+
+{% block content %}
+{{ super() }}
+<div class="l-box">
+  <div class="user-dashboard pure-g">
+    <h1 class="pure-u-1 center">Dashboard</h1>
+    <div class="pure-u-1 pure-u-md-1-2">
+      <div class="l-box right-justify">
+        {{ avatar(current_user, size=200) }}
+        <h3>{{ current_user.name }}</h3>
+        <p><a href="mailto:{{ current_user.email }}">{{ current_user.email }}</a></p>
+      </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-2">
+      <div class="l-box">
+        <p><a class="pure-button" href="{{ url_for('user.change_name') }}">change name</a></p>
+        <p><a class="pure-button" href="{{ url_for('user.change_email') }}">change email</a></p>
+        <p><a class="pure-button" href="{{ url_for('user.change_password') }}">change password</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

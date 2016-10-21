@@ -1,0 +1,20 @@
+{% extends 'forum/layout.html' %}
+{% import '_macros.html' as macros with context %}
+
+{% block title %}Edit Post {{ super() }}{% endblock title %}
+
+{% block content %}
+{{ super() }}
+<div class="l-box">
+  <div class="center">
+    <h1>Edit Post</h1>
+  </div>
+  <form id="edit-post" action="" method="POST">
+    {{ form.hidden_tag() }}
+    {{ form.content(placeholder="say something...") }}
+    <div class="center">
+      {{ form.submit(class_='pure-button pure-button-primary') }}
+    </div>
+  </form>
+</div>
+{% endblock content %}

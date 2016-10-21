@@ -1,0 +1,43 @@
+{% extends 'layout.html' %}
+{% import '_macros.html' as macros with context %}
+
+{% block title %}User Profile of {{ user.name }} {{ super() }}{% endblock title %}
+
+{% block head %}
+{{ super() }}
+{{ moment.include_jquery() }}
+{{ moment.include_moment() }}
+{% endblock head %}
+
+{% block content %}
+{{ super() }}
+<div class="l-box">
+  <div class="user-profile">
+    <h1>User Profile</h1>
+    {{ macros.avatar(user, size=200) }}
+    <h3>{{ user.name }}</h3>
+    <table>
+      <tr>
+        <td><i class="fa fa-envelope-o"></i></td>
+        <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+      </tr>
+      <tr>
+        <td><i class="fa fa-clock-o"></i></td>
+        <td>Joined on {{ macros.render_datetime(user.created_on) }}</td>
+      </tr>
+      <tr>
+        {% with total_topics = user.topics.count() %}
+        <td><i class="fa fa-commenting-o"></i></td>
+        <td>{{ total_topics }} topic{{ 's' if total_topics > 1 }}</td>
+        {% endwith %}
+      </tr>
+      <tr>
+        {% with total_posts = user.posts.count() %}
+        <td><i class="fa fa-comments-o"></i></td>
+        <td>{{ total_posts }} post{{ 's' if total_posts > 1 }}</td>
+        {% endwith %}
+      </tr>
+    </table>
+  </div>
+</div>
+{% endblock content %}

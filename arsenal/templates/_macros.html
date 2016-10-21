@@ -1,0 +1,83 @@
+{# -*- vim: set sts=2 sw=2 et ft=jinja.html fdm=marker: -- vim modeline -*- #}
+
+{% macro avatar(user) %}
+{% if kwargs %}
+<img src="{{ user.email | gravatar(**kwargs) }}" alt="{{ user.name }}">
+{% else %}
+<img src="{{ user.email | gravatar }}" alt="{{ user.name }}">
+{% endif %}
+{% endmacro %}
+
+{% macro render_datetime(datetime) %}
+{{ moment(datetime).calendar() }}
+{% endmacro %}
+
+{% macro render_errors(field) %}
+{% for error in field.errors %}<p class="error-message">{{ error }}</p>{% endfor %}
+{% endmacro %}
+
+{% macro render_post(post) %}
+<div class="post pure-g">
+  <div class="pure-u-1 pure-u-md-1-6">
+    <div class="post-author">
+      {{ avatar(post.author) }}
+    </div>
+    <div class="post-date">
+      by <a href="{{ post.author.url }}">{{ post.author.name }}</a><br>
+      {{ render_datetime(post.updated_on) }}
+    </div>
+  </div>
+  <div class="post-content pure-u-1 pure-u-md-5-6">
+    <div class="l-box">
+      {{ post.content_html|safe }}
+    </div>
+  </div>
+</div>
+{% endmacro %}
+
+{% macro render_topic(topic) %}
+<div class="topic pure-g">
+  <h1 class="topic-title pure-u-1">
+    {{ topic.title }}
+    <small class="round-corner">{{ topic.post_count }}</small>
+  </h1>
+  <div class="topic-thread pure-u-1">
+    {% for post in topic.posts %}
+    <div id="post-{{ loop.index }}">
+      <p class="post-number"><span>{{ loop.index }}</span>
+      {% if current_user == post.author %}
+      <a href="{{ url_for('forum.edit_post', num=loop.index, id=post.id) }}">edit</a>
+      {% endif %}
+      </p>
+      {{ render_post(post) }}
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endmacro %}
+
+{% macro render_topic_list(topics) %}
+<div class="topic-list">
+  {% for topic in topics %}
+  {% set latest_post = topic.last_post %}
+  <div class="topic pure-g">
+    <div class="l-box">
+      <div class="pure-u-1 pure-u-md-5-6">
+        <h2 class="topic-title">
+          <a href="{{ topic.url }}">{{ topic.title }}</a>
+          <small class="round-corner">{{ topic.post_count }}</small>
+        </h2>
+        <p>updated on {{ render_datetime(topic.updated_on) }}</p>
+      </div>
+      <div class="pure-u-1 pure-u-md-1-6">
+        <div class="post-author">
+          {{ avatar(latest_post.author) }}
+        </div>
+        <p>latest message on {{ render_datetime(latest_post.updated_on) }}<br>
+        by <a href="{{ latest_post.author.url }}">{{ latest_post.author.name }}</a></p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endmacro %}

@@ -1,0 +1,3 @@
+Flake8
+pytest
+pytest-cov
