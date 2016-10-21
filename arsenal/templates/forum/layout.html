@@ -2,21 +2,17 @@
 
 {% block style %}
 {{ super() }}
-<link rel="stylesheet" href="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+{{ simplemde.css }}
 {% endblock style %}
 
 {% block head %}
 {{ super() }}
 {{ moment.include_jquery() }}
 {{ moment.include_moment() }}
-<script src="//cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+{{ simplemde.js }}
 {% endblock head %}
 
 {% block script %}
 {{ super() }}
-<script type="text/javascript">
-(function () {
-  var simplemde = new SimpleMDE();
-})();
-</script>
+{{ simplemde.load }}
 {% endblock script %}
