@@ -20,7 +20,7 @@ install:
 	pip install -r requirements.txt
 
 coverage:
-	py.test --cov ena --cov-report=html
+	py.test --cov arsenal --cov-report=html
 
 dev-install: install
 	pip install -r requirements/dev.txt
